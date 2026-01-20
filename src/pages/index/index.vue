@@ -3,11 +3,14 @@ import CustomNavbar from './components/CustomNavbar.vue'
 import { onLoad } from '@dcloudio/uni-app'
 import { getHomeBannerAPI } from '@/apis/home'
 import { ref } from 'vue'
-const bannerList = ref([])
+import type { BannerItem } from '@/types/home'
+
+const bannerList = ref<BannerItem[]>([])
 
 const getHomeBannerData = async () => {
   // 这里可以添加获取首页轮播图数据的逻辑
   const res = await getHomeBannerAPI()
+  bannerList.value = res.result
 }
 
 onLoad(() => {
@@ -20,7 +23,7 @@ onLoad(() => {
   <CustomNavbar />
 
   <!-- 自定义轮播图 -->
-  <XtxSwiper />
+  <XtxSwiper :list="bannerList"/>
   <view class="index"> </view>
 </template>
 
