@@ -4,7 +4,7 @@ import { ref } from 'vue'
 // 控制指示点高亮
 const activeIndex = ref(0)
 
-// 改变指示点高亮
+// 改变指示点高亮 - 可以使用第三方插件指定ts类型
 const onThemeChange: UniHelper.SwiperOnChange = (e) => {
   activeIndex.value = e.detail.current
 }

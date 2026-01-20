@@ -1,5 +1,18 @@
 <script setup lang="ts">
 import CustomNavbar from './components/CustomNavbar.vue'
+import { onLoad } from '@dcloudio/uni-app'
+import { getHomeBannerAPI } from '@/apis/home'
+import { ref } from 'vue'
+const bannerList = ref([])
+
+const getHomeBannerData = async () => {
+  // 这里可以添加获取首页轮播图数据的逻辑
+  const res = await getHomeBannerAPI()
+}
+
+onLoad(() => {
+  getHomeBannerData()
+})
 </script>
 
 <template>
