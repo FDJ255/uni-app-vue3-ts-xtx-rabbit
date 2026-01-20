@@ -1,0 +1,18 @@
+一、打开uni-app官网，找到组件，在扩展组件(uni-ui)中找到uni-ui组件库的安装命令
+终端命令：npm i @dcloudio/uni-ui
+
+二、在pages.json中引入组件 - 使组件自动注册导入
+"easycom": {
+	"autoscan": true,
+	"custom": {
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+	}
+}
+
+三、uni-ui组件库中开发的组件使用的是JS，并没有使用TS开发并，也就没有对应的类型声明文件,可以安装第三方包来解决
+终端命令：npm i @uni-helper/uni-ui-types
+
+更新 tsconfig.json文件，添加配置项
+"types": [
+      "@uni-helper/uni-ui-types"
+    ]
